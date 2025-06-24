@@ -2,7 +2,6 @@ import 'package:events_solutech/_app-main.dart';
 import 'package:events_solutech/providers/_activities-provider.dart';
 import 'package:events_solutech/providers/_customer-provider.dart';
 import 'package:events_solutech/providers/_visits-provider.dart';
-import 'package:events_solutech/providers/index.dart';
 import 'package:events_solutech/shared/_themes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
