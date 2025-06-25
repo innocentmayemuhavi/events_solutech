@@ -2,7 +2,6 @@ import 'package:events_solutech/services/_data-service.dart';
 import 'package:flutter/foundation.dart';
 import '../models/_models.dart';
 
-
 class ActivitiesProvider with ChangeNotifier {
   List<Activity> _activities = [];
   bool _isLoading = false;
