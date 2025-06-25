@@ -6,24 +6,34 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:events_solutech/app_main.dart';
+import 'package:events_solutech/providers/activities_provider.dart';
+import 'package:events_solutech/providers/customer_provider.dart';
+import 'package:events_solutech/providers/visits_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('App shows main widgets', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(AppMain());
+    await tester.pumpWidget(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => CustomersProvider()),
+          ChangeNotifierProvider(create: (_) => VisitsProvider()),
+          ChangeNotifierProvider(create: (_) => ActivitiesProvider()),
+        ],
+        child: MaterialApp(home: AppMain()),
+      ),
+    );
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Wait for the widget to settle
+    await tester.pumpAndSettle();
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Verify that the app shows the main widgets
+    expect(find.text('Visits Tracker'), findsOneWidget);
+    expect(find.text('Visits'), findsOneWidget);
+    expect(find.text('Add Visit'), findsOneWidget);
+    expect(find.text('Analytics'), findsOneWidget);
   });
 }
