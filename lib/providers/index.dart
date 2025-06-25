@@ -1,6 +1,6 @@
-import 'package:events_solutech/providers/_activities-provider.dart';
-import 'package:events_solutech/providers/_customer-provider.dart';
-import 'package:events_solutech/providers/_visits-provider.dart';
+import 'package:events_solutech/providers/activities_provider.dart';
+import 'package:events_solutech/providers/customer_provider.dart';
+import 'package:events_solutech/providers/visits_provider.dart';
 import 'package:provider/provider.dart';
 
 List<ChangeNotifierProvider> get providers => [

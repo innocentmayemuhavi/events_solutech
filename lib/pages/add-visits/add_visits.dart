@@ -1,9 +1,9 @@
-import 'package:events_solutech/widgets/_stats-recent-activities.dart';
+import 'package:events_solutech/widgets/_stats_recent_activities.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../providers/_customer-provider.dart';
-import '../../providers/_visits-provider.dart';
-import '../../providers/_activities-provider.dart';
+import '../../providers/customer_provider.dart';
+import '../../providers/visits_provider.dart';
+import '../../providers/activities_provider.dart';
 import '../../models/_models.dart';
 
 class AddVisitPage extends StatefulWidget {

@@ -29,7 +29,7 @@ Widget buildActivitiesSection(
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.1),
+              color: Colors.grey.withValues(alpha: .1),
               spreadRadius: 1,
               blurRadius: 1,
               offset: const Offset(0, 3),
@@ -49,7 +49,7 @@ Widget buildActivitiesSection(
               decoration: BoxDecoration(
                 border: Border(
                   bottom: BorderSide(
-                    color: Colors.grey.withOpacity(0.1),
+                    color: Colors.grey.withValues(alpha: .1),
                     width: 1,
                   ),
                 ),
@@ -61,7 +61,7 @@ Widget buildActivitiesSection(
                     decoration: BoxDecoration(
                       color: Theme.of(
                         context,
-                      ).colorScheme.primary.withOpacity(0.1),
+                      ).colorScheme.primary.withValues(alpha: .1),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Icon(
@@ -88,7 +88,7 @@ Widget buildActivitiesSection(
                             return Container(
                               height: 4,
                               decoration: BoxDecoration(
-                                color: Colors.grey.withOpacity(0.2),
+                                color: Colors.grey.withValues(alpha: .2),
                                 borderRadius: BorderRadius.circular(2),
                               ),
                               child: Stack(
@@ -97,7 +97,7 @@ Widget buildActivitiesSection(
                                     width: double.infinity,
                                     height: 4,
                                     decoration: BoxDecoration(
-                                      color: Colors.grey.withOpacity(0.2),
+                                      color: Colors.grey.withValues(alpha: .2),
                                       borderRadius: BorderRadius.circular(2),
                                     ),
                                   ),
@@ -130,7 +130,7 @@ Widget buildActivitiesSection(
                     decoration: BoxDecoration(
                       color: Theme.of(
                         context,
-                      ).colorScheme.primary.withOpacity(0.1),
+                      ).colorScheme.primary.withValues(alpha: .1),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Text(

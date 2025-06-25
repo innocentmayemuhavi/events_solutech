@@ -1,6 +1,6 @@
-import 'package:events_solutech/providers/_customer-provider.dart';
-import 'package:events_solutech/providers/_visits-provider.dart';
-import 'package:events_solutech/widgets/_visit-card.dart';
+import 'package:events_solutech/providers/customer_provider.dart';
+import 'package:events_solutech/providers/visits_provider.dart';
+import 'package:events_solutech/widgets/_visit_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -84,13 +84,7 @@ class _VisitsPageState extends State<VisitsPage> {
                     itemCount: visits.length,
                     itemBuilder: (context, index) {
                       final visit = visits[index];
-                      return VisitCard(
-                        visit: visit,
-                        onTap: () {
-                          // Custom tap handler if needed
-                          print('Tapped on visit ${visit.id}');
-                        },
-                      );
+                      return VisitCard(visit: visit, onTap: () {});
                     },
                   );
                 },

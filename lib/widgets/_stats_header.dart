@@ -6,12 +6,15 @@ Widget buildStatsHeader(BuildContext context) {
     padding: const EdgeInsets.all(20),
     decoration: BoxDecoration(
       gradient: LinearGradient(
-        colors: [Colors.white.withOpacity(0.05), primaryColor.withOpacity(0.3)],
+        colors: [
+          Colors.white.withValues(alpha: .05),
+          primaryColor.withValues(alpha: .3),
+        ],
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
       ),
 
-      border: Border.all(color: Colors.grey.withOpacity(0.5), width: 1),
+      border: Border.all(color: Colors.grey.withValues(alpha: .5), width: 1),
       borderRadius: BorderRadius.circular(16),
     ),
     child: Row(

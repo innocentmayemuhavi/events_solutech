@@ -1,4 +1,4 @@
-import 'package:events_solutech/pages/add-visits/add-visits.dart';
+import 'package:events_solutech/pages/add-visits/add_visits.dart';
 import 'package:events_solutech/pages/analytics/analytics.dart';
 import 'package:events_solutech/pages/visits/visits.dart';
 import 'package:flutter/material.dart';

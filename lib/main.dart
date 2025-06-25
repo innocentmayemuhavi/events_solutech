@@ -1,7 +1,7 @@
-import 'package:events_solutech/_app-main.dart';
-import 'package:events_solutech/providers/_activities-provider.dart';
-import 'package:events_solutech/providers/_customer-provider.dart';
-import 'package:events_solutech/providers/_visits-provider.dart';
+import 'package:events_solutech/app_main.dart';
+import 'package:events_solutech/providers/activities_provider.dart';
+import 'package:events_solutech/providers/customer_provider.dart';
+import 'package:events_solutech/providers/visits_provider.dart';
 import 'package:events_solutech/shared/_themes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +11,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -32,6 +34,8 @@ class MyApp extends StatelessWidget {
 }
 
 class AppMainWrapper extends StatefulWidget {
+  const AppMainWrapper({super.key});
+
   @override
   State<AppMainWrapper> createState() => _AppMainWrapperState();
 }
@@ -50,11 +54,18 @@ class _AppMainWrapperState extends State<AppMainWrapper> {
     try {
       if (mounted) {
         await context.read<CustomersProvider>().loadCustomers();
+        // ignore: use_build_context_synchronously
         await context.read<VisitsProvider>().loadVisits();
+        // ignore: use_build_context_synchronously
         await context.read<ActivitiesProvider>().loadActivities();
       }
     } catch (e) {
-      print('Error loading data: $e');
+      // Handle any errors that occur during data loading
+      if (mounted) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Error loading data: $e')));
+      }
     }
   }
 

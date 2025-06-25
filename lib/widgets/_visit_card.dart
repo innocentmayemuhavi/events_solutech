@@ -1,6 +1,6 @@
 import 'package:events_solutech/models/_models.dart';
-import 'package:events_solutech/providers/_activities-provider.dart';
-import 'package:events_solutech/providers/_customer-provider.dart';
+import 'package:events_solutech/providers/activities_provider.dart';
+import 'package:events_solutech/providers/customer_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -30,7 +30,9 @@ class VisitCard extends StatelessWidget {
           margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
           child: ListTile(
             leading: CircleAvatar(
-              backgroundColor: _getStatusColor(visit.status).withOpacity(0.1),
+              backgroundColor: _getStatusColor(
+                visit.status,
+              ).withValues(alpha: 0.1),
               child: Text(
                 '#${visit.id}',
                 style: TextStyle(
@@ -74,7 +76,9 @@ class VisitCard extends StatelessWidget {
                         vertical: 2,
                       ),
                       decoration: BoxDecoration(
-                        color: _getStatusColor(visit.status).withOpacity(0.1),
+                        color: _getStatusColor(
+                          visit.status,
+                        ).withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Text(

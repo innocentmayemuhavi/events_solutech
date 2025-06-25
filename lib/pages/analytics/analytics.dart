@@ -1,14 +1,14 @@
-import 'package:events_solutech/widgets/_stats-activities-section.dart';
-import 'package:events_solutech/widgets/_stats-customer-section.dart';
-import 'package:events_solutech/widgets/_stats-progress-section.dart';
-import 'package:events_solutech/widgets/_stats-recent-activities.dart';
-import 'package:events_solutech/widgets/_visit-status-overview.dart';
+import 'package:events_solutech/widgets/_stats_activities_section.dart';
+import 'package:events_solutech/widgets/_stats_customer_section.dart';
+import 'package:events_solutech/widgets/_stats_progress_section.dart';
+import 'package:events_solutech/widgets/_stats_recent_activities.dart';
+import 'package:events_solutech/widgets/_visit_status_overview.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../providers/_visits-provider.dart';
-import '../../providers/_customer-provider.dart';
-import '../../providers/_activities-provider.dart';
-import '../../widgets/_stats-header.dart';
+import '../../providers/visits_provider.dart';
+import '../../providers/customer_provider.dart';
+import '../../providers/activities_provider.dart';
+import '../../widgets/_stats_header.dart';
 
 class AnalyticsPage extends StatefulWidget {
   const AnalyticsPage({super.key});

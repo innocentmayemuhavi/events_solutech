@@ -38,7 +38,7 @@ Widget buildCustomerSection(
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.1),
+              color: Colors.grey.withValues(alpha: .1),
               spreadRadius: 1,
               blurRadius: 1,
               offset: const Offset(0, 3),
@@ -52,7 +52,7 @@ Widget buildCustomerSection(
               leading: CircleAvatar(
                 backgroundColor: Theme.of(
                   context,
-                ).colorScheme.primary.withOpacity(0.1),
+                ).colorScheme.primary.withValues(alpha: .1),
                 child: Text(
                   customer.name.substring(0, 1).toUpperCase(),
                   style: TextStyle(
@@ -71,7 +71,9 @@ Widget buildCustomerSection(
                   vertical: 6,
                 ),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.primary.withValues(alpha: .1),
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Text(

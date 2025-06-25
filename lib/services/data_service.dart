@@ -16,7 +16,6 @@ class DataService {
 
       return customersJson.map((json) => Customer.fromJson(json)).toList();
     } catch (e) {
-      print('Error loading customers: $e');
       return [];
     }
   }
@@ -30,8 +29,7 @@ class DataService {
 
       return activitiesJson.map((json) => Activity.fromJson(json)).toList();
     } catch (e) {
-      print('Error loading activities: $e');
-      return [];
+      throw Exception('Failed to load activities: $e');
     }
   }
 
@@ -44,8 +42,7 @@ class DataService {
 
       return visitsJson.map((json) => Visit.fromJson(json)).toList();
     } catch (e) {
-      print('Error loading visits: $e');
-      return [];
+      throw Exception('Failed to load visits: $e');
     }
   }
 }

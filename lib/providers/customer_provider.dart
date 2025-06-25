@@ -1,4 +1,4 @@
-import 'package:events_solutech/services/_data-service.dart';
+import 'package:events_solutech/services/data_service.dart';
 import 'package:flutter/foundation.dart';
 import '../models/_models.dart';
 
