@@ -1,4 +1,3 @@
-
 import 'package:events_solutech/utils/utils.dart';
 
 class Customer {
