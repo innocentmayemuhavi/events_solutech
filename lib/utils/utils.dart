@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 
 /// Returns the appropriate icon for different activity types
@@ -149,4 +151,62 @@ String capitalize(String text) {
 String capitalizeWords(String text) {
   if (text.isEmpty) return text;
   return text.split(' ').map((word) => capitalize(word)).join(' ');
+}
+
+List<int> parseActivitiesDone(dynamic activitiesData) {
+  if (activitiesData == null) return [];
+
+  try {
+    // If it's already a List
+    if (activitiesData is List) {
+      return activitiesData.map((item) {
+        if (item is int) return item;
+        if (item is String) return int.tryParse(item) ?? 0;
+        return 0;
+      }).toList();
+    }
+
+    // If it's a String that looks like JSON array
+    if (activitiesData is String) {
+      // Handle cases like "[9]", "[1,2,3]", etc.
+      String cleanString = activitiesData.trim();
+
+      // If it starts with [ and ends with ], try to parse as JSON
+      if (cleanString.startsWith('[') && cleanString.endsWith(']')) {
+        try {
+          List<dynamic> parsed = json.decode(cleanString);
+          return parsed.map((item) {
+            if (item is int) return item;
+            if (item is String) return int.tryParse(item) ?? 0;
+            return 0;
+          }).toList();
+        } catch (e) {
+          // If JSON parsing fails, try to extract numbers manually
+          String numbersOnly = cleanString.replaceAll(RegExp(r'[^\d,]'), '');
+          if (numbersOnly.isNotEmpty) {
+            return numbersOnly
+                .split(',')
+                .where((s) => s.isNotEmpty)
+                .map((s) => int.tryParse(s) ?? 0)
+                .toList();
+          }
+        }
+      }
+
+      // Try to parse as single number
+      int? singleNumber = int.tryParse(cleanString);
+      if (singleNumber != null) {
+        return [singleNumber];
+      }
+    }
+
+    // If it's a single number
+    if (activitiesData is int) {
+      return [activitiesData];
+    }
+  } catch (e) {
+    throw Exception('Failed to parse activities');
+  }
+
+  return [];
 }

@@ -1,3 +1,6 @@
+
+import 'package:events_solutech/utils/utils.dart';
+
 class Customer {
   final int id;
   final String name;
@@ -57,16 +60,18 @@ class Visit {
 
   factory Visit.fromJson(Map<String, dynamic> json) {
     return Visit(
-      id: json['id'],
-      customerId: json['customer_id'],
-      visitDate: DateTime.parse(json['visit_date']),
-      status: json['status'],
-      location: json['location'],
-      notes: json['notes'],
-      activitiesDone: List<String>.from(
-        json['activities_done'],
-      ).map((id) => int.parse(id)).toList(),
-      createdAt: DateTime.parse(json['created_at']),
+      id: json['id'] ?? 0,
+      customerId: json['customer_id'] ?? 0,
+      visitDate: DateTime.parse(
+        json['visit_date'] ?? DateTime.now().toIso8601String(),
+      ),
+      status: json['status'] ?? '',
+      location: json['location'] ?? '',
+      notes: json['notes'] ?? '',
+      activitiesDone: parseActivitiesDone(json['activities_done']),
+      createdAt: DateTime.parse(
+        json['created_at'] ?? DateTime.now().toIso8601String(),
+      ),
     );
   }
 }

@@ -44,7 +44,7 @@ class _AppMainWrapperState extends State<AppMainWrapper> {
   @override
   void initState() {
     super.initState();
-    // Load data after the widget is built
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _loadData();
     });
@@ -60,7 +60,6 @@ class _AppMainWrapperState extends State<AppMainWrapper> {
         await context.read<ActivitiesProvider>().loadActivities();
       }
     } catch (e) {
-      // Handle any errors that occur during data loading
       if (mounted) {
         ScaffoldMessenger.of(
           context,

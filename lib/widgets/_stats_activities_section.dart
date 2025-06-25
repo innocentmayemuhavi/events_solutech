@@ -6,7 +6,6 @@ Widget buildActivitiesSection(
   List<Visit> visits,
   List<Activity> activities,
 ) {
-  // Calculate activity statistics
   final activityStats = <int, int>{};
   for (final visit in visits) {
     for (final activityId in visit.activitiesDone) {
