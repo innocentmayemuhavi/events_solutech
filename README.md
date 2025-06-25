@@ -103,3 +103,24 @@ The app features animations to enhance user experience:
 #### **Interactive Elements**
 
 - **List Item Animations**: Smooth animations when adding new visits
+
+## 🔄 CI/CD Implementation
+
+### Overview
+
+This project implements a robust CI/CD pipeline using GitHub Actions to ensure code quality, automated testing, and streamlined deployment processes.
+
+### Implemented Workflows
+
+#### **1. Continuous Integration Pipeline (`ci.yml`)**
+
+Automatically runs on every push to `main`/`develop` branches and all pull requests:
+
+```yaml
+# Workflow triggers
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+```
